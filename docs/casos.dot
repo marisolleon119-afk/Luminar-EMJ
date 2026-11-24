@@ -1,0 +1,44 @@
+digraph G {
+  rankdir=LR; graph [fontname="DejaVu Sans", bgcolor="white", pad=0.4, nodesep=0.3, ranksep=0.9];
+  node [fontname="DejaVu Sans", fontsize=12]; edge [fontname="DejaVu Sans", fontsize=10, color="#555555"];
+  jugador [shape=none, label=<<table border="0"><tr><td><font point-size="34">🧍</font></td></tr><tr><td><b>Jugador</b></td></tr></table>>];
+  nube [shape=none, label=<<table border="0"><tr><td><font point-size="34">☁</font></td></tr><tr><td><b>Supabase</b><br/>(servicio remoto)</td></tr></table>>];
+  subgraph cluster_sis {
+    label=<<b>Sistema: videojuego Luminar</b>>; fontsize=15; style="rounded"; color="#3b5bdb"; margin=16;
+    node [shape=ellipse, style=filled, fillcolor="#eef2ff", color="#3b5bdb"];
+    acceso [label="CU-01 Entrar con alias + PIN"];
+    validar_a [label="Validar alias y PIN"];
+    registrar [label="Registrar alias nuevo"];
+    local_a [label="Entrar en modo local\n(sin conexión)"];
+    cambiar [label="CU-02 Cambiar jugador"];
+    historia [label="CU-03 Ver historia (cómic)"];
+    jugar [label="CU-04 Jugar partida"];
+    mover [label="Moverse / correr"];
+    farol [label="Encender farol"];
+    celda [label="Recoger celda de energía"];
+    vida  [label="Recoger corazón (vida extra)"];
+    final [label="Ver cómic final"];
+    pausa [label="CU-05 Pausar / reanudar"];
+    guardar [label="CU-06 Guardar puntuación"];
+    validar [label="Validar datos"];
+    local [label="Guardar en modo local"];
+    subir [label="CU-07 Subir partidas pendientes"];
+    ranking [label="CU-08 Consultar Top 10"];
+    ajustes [label="CU-09 Configurar ajustes y teclas"];
+    instr [label="CU-10 Ver instrucciones"];
+  }
+  jugador -> {acceso cambiar historia jugar pausa ranking ajustes instr} [arrowhead=none];
+  acceso -> validar_a [style=dashed, label="«include»"];
+  registrar -> acceso [style=dashed, label="«extend»"];
+  local_a -> acceso [style=dashed, label="«extend»"];
+  jugar -> mover [style=dashed, label="«include»"];
+  jugar -> farol [style=dashed, label="«include»"];
+  celda -> jugar [style=dashed, label="«extend»"];
+  vida -> jugar [style=dashed, label="«extend»"];
+  final -> jugar [style=dashed, label="«extend»\n(al ganar)"];
+  historia -> jugar [style=dashed, label="«extend»\n(1ª vez)"];
+  jugar -> guardar [style=dashed, label="«include»"];
+  guardar -> validar [style=dashed, label="«include»"];
+  local -> guardar [style=dashed, label="«extend»"];
+  {acceso guardar subir ranking} -> nube [arrowhead=none, color="#7048e8"];
+}

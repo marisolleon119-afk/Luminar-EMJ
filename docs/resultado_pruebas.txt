@@ -1,0 +1,57 @@
+Resultado de tests/pruebas.tscn (Godot 4.7.2.stable, unitarias + funcionales + integración) — 2026-11-22
+
+✔ PASA  PU-01  Partida válida se acepta
+✔ PASA  PU-02  Puntuación negativa se rechaza
+✔ PASA  PU-03  Puntuación mayor al máximo se rechaza
+✔ PASA  PU-04  Tiempo fuera de rango (> 6:05) se rechaza
+✔ PASA  PU-05  Alias de menos de 3 caracteres se rechaza
+✔ PASA  PU-06  iniciar_sesion valida el alias antes de enviar
+✔ PASA  PU-07  id_a_texto convierte 12.0 en "12"
+✔ PASA  PU-08  id_valor convierte "12" en entero
+✔ PASA  PU-09  registrar_puntaje guarda en el ranking local
+✔ PASA  PU-10  Puntuación negativa se recorta a 0 (no se guarda negativa)
+✔ PASA  PU-11  Alias válido con acentos y espacio se acepta
+✔ PASA  PU-12  Alias con símbolos se rechaza
+✔ PASA  PU-13  Alias de más de 12 caracteres se rechaza
+✔ PASA  PU-14  Espacios de más se normalizan
+✔ PASA  PU-15  PIN con letras se rechaza
+✔ PASA  PU-16  PIN de 4 números se acepta
+✔ PASA  PU-17  Récord personal: se detecta y no lo baja una partida peor
+✔ PASA  PU-18  Las acciones también funcionan con control (gamepad)
+✔ PASA  PU-19  Cambiar jugador borra la sesión del dispositivo
+✔ PASA  PU-20  Con internet, sin PIN verificado no se puede jugar
+✔ PASA  PU-21  Sin internet se puede jugar con alias válido (modo local)
+✔ PASA  PU-22  Sin internet tampoco se acepta un alias inválido
+✔ PASA  PU-23  Sin config.cfg se avisa "nube sin configurar" (no un falso "sin conexión")
+✔ PASA  PF-00  La pantalla de acceso no deja pasar con alias inválido
+✔ PASA  PF-00b  La pantalla de acceso no deja pasar con PIN incompleto
+✔ PASA  PF-01  Hay 5 faroles separados al menos 120 px
+✔ PASA  PF-02  Correr aumenta la velocidad (x1.6)
+✔ PASA  PF-03  Correr gasta energía extra
+✔ PASA  PF-04  Chispa pierde una vida al ser tocada
+✔ PASA  PF-05  Aparece un corazón cuando falta una vida
+✔ PASA  PF-06  Recoger el corazón recupera la vida
+✔ PASA  PF-07  Encender 5 faroles completa la ronda
+✔ PASA  PF-08  En la ronda nueva los faroles cambian de lugar
+✔ PASA  PF-09  La puntuación incluye el bono de ronda
+✔ PASA  PF-13  El cómic de inicio tiene 2 páginas y se puede avanzar hasta el final
+✔ PASA  PF-10  Sin conexión la partida termina sin cerrarse el juego
+✔ PASA  PF-11  Sin conexión se muestra un mensaje claro
+✔ PASA  PF-12  Sin conexión la partida queda pendiente en el equipo
+✔ PASA  PF-14  Al ganar se muestra el cómic final antes de los resultados
+✔ PASA  PF-15  Al cerrar el cómic final aparecen los resultados
+✔ PASA  PI-01  Registrar jugador nuevo con PIN (rpc acceder_jugador)
+✔ PASA  PI-02  Mismo alias (en mayúsculas) + PIN correcto = mismo jugador
+✔ PASA  PI-03  Otro dispositivo con PIN incorrecto NO puede usar el alias
+✔ PASA  PI-04  El servidor rechaza alias inválidos
+✔ PASA  PI-05  Guardar partida válida con sesión (rpc guardar_partida)
+✔ PASA  PI-06  Consultar la partida guardada (GET -> 200, mismos datos)
+✔ PASA  PI-07  Top 10: máximo 10 filas ordenadas de mayor a menor
+✔ PASA  PI-08  El servidor rechaza partida duplicada (< 15 s)
+✔ PASA  PI-09  Sin sesión válida no se puede guardar
+✔ PASA  PI-10  No se puede insertar directo en la tabla (solo con la función)
+✔ PASA  PI-11  Nadie puede leer los PIN por la API
+✔ PASA  PI-12  El servidor rechaza puntuación negativa
+✔ PASA  PI-13  El servidor rechaza puntuación imposible
+✔ PASA  PI-14  El juego no puede modificar puntuaciones
+RESULTADO: 54 pasan, 0 fallan

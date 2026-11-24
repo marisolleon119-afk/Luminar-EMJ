@@ -1,0 +1,364 @@
+[gd_scene format=3 uid="uid://c2ndq4p277msw"]
+
+[ext_resource type="Theme" path="res://Recursos/UI/tema_luminar.tres" id="1_r"]
+[ext_resource type="Script" uid="uid://ii6sjrjn3qgd" path="res://scripts/pausa.gd" id="2_r"]
+[ext_resource type="Texture2D" path="res://Recursos/UI/sonido_on.png" id="3_r"]
+[ext_resource type="Texture2D" path="res://Recursos/UI/pausa.png" id="4_r"]
+
+[node name="Pausa" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("2_r")
+
+[node name="Interfaz" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_r")
+
+[node name="Esquina" type="HBoxContainer" parent="Interfaz"]
+layout_mode = 1
+theme_override_constants/separation = 8
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 68.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="BtnSonido" type="Button" parent="Interfaz/Esquina"]
+layout_mode = 2
+unique_name_in_owner = true
+focus_mode = 0
+custom_minimum_size = Vector2(52.0, 52.0)
+theme_type_variation = &"BotonIcono"
+expand_icon = true
+icon_alignment = 1
+icon = ExtResource("3_r")
+tooltip_text = "Silenciar (M)"
+
+[node name="BtnPausa" type="Button" parent="Interfaz/Esquina"]
+layout_mode = 2
+unique_name_in_owner = true
+focus_mode = 0
+custom_minimum_size = Vector2(52.0, 52.0)
+theme_type_variation = &"BotonIcono"
+expand_icon = true
+icon_alignment = 1
+icon = ExtResource("4_r")
+tooltip_text = "Pausa (P / Esc)"
+
+[node name="Cuenta" type="Label" parent="Interfaz"]
+layout_mode = 1
+unique_name_in_owner = true
+text = "3"
+theme_type_variation = &"HudLabel"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 120
+horizontal_alignment = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_alignment = 1
+mouse_filter = 2
+visible = false
+
+[node name="Menu" type="Control" parent="Interfaz"]
+layout_mode = 1
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="Velo" type="ColorRect" parent="Interfaz/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0, 0.0, 0.0, 0.65)
+
+[node name="Centro" type="CenterContainer" parent="Interfaz/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Interfaz/Menu/Centro"]
+layout_mode = 2
+theme_type_variation = &"PanelLuminar"
+custom_minimum_size = Vector2(400.0, 0.0)
+
+[node name="Col" type="VBoxContainer" parent="Interfaz/Menu/Centro/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+text = "Pausa"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 52.0)
+text = "Continuar"
+theme_type_variation = &"BotonPrincipal"
+theme_override_font_sizes/font_size = 24
+
+[node name="BtnReiniciar" type="Button" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 52.0)
+text = "Reiniciar"
+theme_override_font_sizes/font_size = 24
+tooltip_text = "Empieza de nuevo. No se guarda la puntuación actual."
+
+[node name="BtnAyuda" type="Button" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 44.0)
+text = "Cómo jugar"
+
+[node name="BtnAjustes" type="Button" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 44.0)
+text = "Ajustes"
+
+[node name="BtnSalir" type="Button" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 52.0)
+text = "Salir al menú"
+theme_override_font_sizes/font_size = 24
+
+[node name="Nota" type="Label" parent="Interfaz/Menu/Centro/Panel/Col"]
+layout_mode = 2
+text = "P o Esc para continuar · Reiniciar o salir no guarda la puntuación"
+theme_type_variation = &"TextoSuave"
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+
+[node name="Ayuda" type="Control" parent="Interfaz"]
+layout_mode = 1
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="Velo" type="ColorRect" parent="Interfaz/Ayuda"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0, 0.0, 0.0, 0.8)
+
+[node name="Centro" type="CenterContainer" parent="Interfaz/Ayuda"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Interfaz/Ayuda/Centro"]
+layout_mode = 2
+theme_type_variation = &"PanelLuminar"
+
+[node name="Col" type="VBoxContainer" parent="Interfaz/Ayuda/Centro/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Titulo" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "Cómo jugar"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="SubControles" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "Controles"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 20
+
+[node name="TablaControles" type="GridContainer" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+columns = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 2
+
+[node name="Accion0" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Mover a la izquierda"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla0" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "A / Flecha izq."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+[node name="Accion1" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Mover a la derecha"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla1" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "D / Flecha der."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+[node name="Accion2" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Mover arriba"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla2" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "W / Flecha arr."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+[node name="Accion3" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Mover abajo"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla3" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "S / Flecha abj."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+[node name="Accion4" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Encender farol"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla4" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "E / Espacio"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+[node name="Accion5" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Pausar / reanudar"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla5" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "P / Esc"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+[node name="Accion6" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Silenciar audio"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla6" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "M"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+
+
+[node name="Accion7" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "Silenciar audio"
+theme_override_font_sizes/font_size = 15
+
+[node name="Tecla7" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col/TablaControles"]
+layout_mode = 2
+text = "M"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 15
+[node name="SubConsejos" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "Consejos"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 20
+
+[node name="Consejo0" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "• Moverte fuera de la luz gasta energía (más en las rondas avanzadas). Dentro de la luz de un farol no se gasta."
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="Consejo1" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "• Cada celda da 10 puntos × combo y 15 de energía. Fuera de la luz ganas +5 de riesgo."
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="Consejo2" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "• El combo sube si recoges otra celda a tiempo (máximo x5). La ventana se acorta en cada ronda."
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="Consejo3" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "• Encender un farol cuesta 10 de energía, da 50 puntos y crea una zona segura."
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="Consejo4" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "• Si una Sombra te ve, avisa a las demás. Con el tiempo se vuelven más rápidas: no te quedes lejos de la luz."
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="Consejo5" type="Label" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+text = "• Sin energía vas a la mitad de velocidad. Si pasas 5 segundos así, pierdes una vida."
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="BtnVolverAyuda" type="Button" parent="Interfaz/Ayuda/Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Volver"
+theme_type_variation = &"BotonPrincipal"

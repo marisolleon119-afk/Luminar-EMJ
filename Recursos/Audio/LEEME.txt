@@ -1,0 +1,30 @@
+AUDIO DE LUMINAR (GDD 6.4: fuentes y licencias)
+
+Todo el audio de esta carpeta es ORIGINAL del equipo de Luminar. No se usaron
+muestras, loops ni pistas de terceros: cada sonido se generó por síntesis con el
+script herramientas/sintetizar_audio.py (Python + NumPy/SciPy, codificado a OGG
+Vorbis con FFmpeg). Para regenerarlo:
+    python3 herramientas/sintetizar_audio.py Recursos/Audio
+
+Licencia: autoría del equipo; uso libre dentro del proyecto Luminar.
+
+MÚSICA (musica/, OGG en bucle)
+  menu.ogg      "Ciudad Faro"      Inicio, instrucciones, ranking, ajustes y créditos. 72 bpm, La menor.
+  juego.ogg     "Calles apagadas"  Partida. 104 bpm, Re menor. Se acelera 4 % y 8 % en las rondas 2 y 3.
+  victoria.ogg  Tema corto de victoria (Re mayor) en la pantalla de resultados.
+  derrota.ogg   Tema corto de derrota (Re menor) en la pantalla de resultados.
+
+EFECTOS (efectos/, WAV)
+  celda.wav          Recoger una celda (el tono sube con el combo).
+  farol.wav          Encender un farol.
+  golpe.wav          Una Sombra toca a Chispa / perder una vida.
+  sombra_disipa.wav  Una Sombra se disipa en la luz.
+  energia_baja.wav   La energía baja de 20.
+  error.wav          No alcanza la energía para encender un farol / alias no válido.
+  ronda.wav          Ronda completada.
+  pausa.wav          Abrir el menú de pausa.
+  cuenta.wav         Cuenta regresiva 3, 2, 1 al reanudar.
+  cuenta_ya.wav      Fin de la cuenta regresiva.
+  confirmar.wav      Alias registrado.
+  ui_click.wav       Clic en cualquier botón.
+  ui_hover.wav       Pasar el ratón sobre un botón.

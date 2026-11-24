@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------
+# Luminar · .gitignore para Godot 4.x
+# ---------------------------------------------------------------
+
+# Caché del editor de Godot 4 (se regenera al abrir el proyecto)
+.godot/
+
+# Ejecutables y paquetes exportados (se entregan aparte, no van al repo)
+*.exe
+*.pck
+*.zip
+*.apk
+*.aab
+builds/
+export/
+
+# Plantilla de Android (si alguien la instala)
+/android/
+
+# SECRETOS: configuración real de la nube. En el repo solo va config.ejemplo.cfg
+config.cfg
+
+# Proyectos C# / .NET (no se usan, por si alguien abre con Godot .NET)
+.mono/
+data_*/
+mono_crash.*.json
+*.csproj
+*.sln
+
+# Archivos temporales y del sistema operativo
+*.tmp
+*.bak
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/

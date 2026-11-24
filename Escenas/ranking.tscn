@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://b1y2idcaiahmh"]
+
+[ext_resource type="Texture2D" uid="uid://i8kwnpdg556m" path="res://Recursos/Portada/LUMINAR_ La luz del pueblo nocturno.png" id="1_r"]
+[ext_resource type="Theme" path="res://Recursos/UI/tema_luminar.tres" id="2_r"]
+[ext_resource type="Script" path="res://scripts/ranking.gd" id="3_r"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1"]
+
+[node name="Ranking" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_r")
+script = ExtResource("3_r")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Velo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392, 0.0667, 0.1569, 0.6)
+mouse_filter = 2
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_type_variation = &"PanelLuminar"
+custom_minimum_size = Vector2(620.0, 0.0)
+
+[node name="Col" type="VBoxContainer" parent="Centro/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Titulo" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+text = "Ranking Global"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+
+[node name="Pestanas" type="HBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="BtnTop" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Top 10"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+button_pressed = true
+
+[node name="BtnSemana" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Esta semana"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+
+[node name="BtnNivel" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Esta ronda"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+
+[node name="MargenEnc" type="MarginContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
+
+[node name="Encabezado" type="HBoxContainer" parent="Centro/Panel/Col/MargenEnc"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColPuesto" type="Label" parent="Centro/Panel/Col/MargenEnc/Encabezado"]
+layout_mode = 2
+text = "#"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+custom_minimum_size = Vector2(56.0, 0.0)
+
+[node name="ColAlias" type="Label" parent="Centro/Panel/Col/MargenEnc/Encabezado"]
+layout_mode = 2
+text = "Alias"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 16
+size_flags_horizontal = 3
+
+[node name="ColPuntos" type="Label" parent="Centro/Panel/Col/MargenEnc/Encabezado"]
+layout_mode = 2
+text = "Puntuación"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+custom_minimum_size = Vector2(140.0, 0.0)
+
+[node name="Lista" type="VBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 4
+size_flags_vertical = 3
+
+[node name="FilaPlantilla" type="PanelContainer" parent="Centro/Panel/Col/Lista"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_type_variation = &"FilaRanking"
+
+[node name="Fila" type="HBoxContainer" parent="Centro/Panel/Col/Lista/FilaPlantilla"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Puesto" type="Label" parent="Centro/Panel/Col/Lista/FilaPlantilla/Fila"]
+layout_mode = 2
+text = "1"
+theme_type_variation = &"Titulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+custom_minimum_size = Vector2(56.0, 0.0)
+
+[node name="Alias" type="Label" parent="Centro/Panel/Col/Lista/FilaPlantilla/Fila"]
+layout_mode = 2
+text = "Chispa"
+theme_type_variation = &"Titulo"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 1.0)
+theme_override_font_sizes/font_size = 20
+size_flags_horizontal = 3
+
+[node name="Puntos" type="Label" parent="Centro/Panel/Col/Lista/FilaPlantilla/Fila"]
+layout_mode = 2
+text = "12,345"
+theme_type_variation = &"Titulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+custom_minimum_size = Vector2(140.0, 0.0)
+
+[node name="Estado" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Cargando..."
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MiPosicion" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = ""
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="Botones" type="HBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnVolver" type="Button" parent="Centro/Panel/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Volver"
+size_flags_horizontal = 3
+
+[node name="BtnJugar" type="Button" parent="Centro/Panel/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Jugar"
+theme_type_variation = &"BotonPrincipal"
+size_flags_horizontal = 3

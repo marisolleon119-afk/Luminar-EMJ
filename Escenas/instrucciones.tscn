@@ -1,0 +1,468 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Recursos/Mundo/farol_on.png" id="1_r"]
+[ext_resource type="Texture2D" path="res://Recursos/UI/rayo.png" id="2_r"]
+[ext_resource type="Texture2D" path="res://Recursos/UI/corazon.png" id="3_r"]
+[ext_resource type="Texture2D" path="res://Recursos/UI/reloj.png" id="4_r"]
+[ext_resource type="Texture2D" uid="uid://i8kwnpdg556m" path="res://Recursos/Portada/LUMINAR_ La luz del pueblo nocturno.png" id="5_r"]
+[ext_resource type="Theme" path="res://Recursos/UI/tema_luminar.tres" id="6_r"]
+[ext_resource type="Script" path="res://scripts/instrucciones.gd" id="7_r"]
+
+[node name="Instrucciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_r")
+script = ExtResource("7_r")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_r")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Velo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392, 0.0667, 0.1569, 0.72)
+mouse_filter = 2
+
+[node name="Margen" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 24
+
+[node name="Col" type="VBoxContainer" parent="Margen"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="Margen/Col"]
+layout_mode = 2
+text = "Cómo jugar"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Margen/Col"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Cuerpo" type="HBoxContainer" parent="Margen/Col/Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 20
+size_flags_horizontal = 3
+
+[node name="PanelControles" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo"]
+layout_mode = 2
+custom_minimum_size = Vector2(380.0, 0.0)
+size_flags_vertical = 0
+theme_type_variation = &"PanelLuminar"
+
+[node name="Col" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/PanelControles"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col"]
+layout_mode = 2
+text = "Controles"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 24
+
+[node name="TablaControles" type="GridContainer" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+columns = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 8
+
+[node name="Accion0" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Mover a la izquierda"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla0" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "A / Flecha izq."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion1" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Mover a la derecha"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla1" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "D / Flecha der."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion2" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Mover arriba"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla2" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "W / Flecha arr."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion3" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Mover abajo"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla3" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "S / Flecha abj."
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion4" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Encender farol"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla4" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "E / Espacio"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion5" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Correr (gasta energía)"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla5" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Shift / K"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion6" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Pausar / reanudar"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla6" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "P / Esc"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Accion7" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "Silenciar audio"
+theme_override_font_sizes/font_size = 17
+
+[node name="Tecla7" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col/TablaControles"]
+layout_mode = 2
+text = "M"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+
+[node name="Nota" type="Label" parent="Margen/Col/Scroll/Cuerpo/PanelControles/Col"]
+layout_mode = 2
+text = "En los menús usa las flechas y Enter, o haz clic en los botones. Puedes cambiar las teclas en Ajustes. También puedes jugar con control: stick o cruceta para moverte, A para encender, RB o X para correr y Start para pausar. Si cambias de ventana, el juego se pausa solo."
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.7)
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+custom_minimum_size = Vector2(330.0, 0.0)
+
+[node name="Reglas" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo"]
+layout_mode = 2
+theme_override_constants/separation = 10
+size_flags_horizontal = 3
+
+[node name="Tarjeta1" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta1"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta1/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("1_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta1/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta1/Fila/Textos"]
+layout_mode = 2
+text = "Objetivo"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta1/Fila/Textos"]
+layout_mode = 2
+text = "Ayuda a Chispa a reencender Ciudad Faro. En cada ronda enciende los 5 faroles del mapa mientras esquivas a las Sombras. Completa las 3 rondas para ganar y consigue la mayor puntuación posible."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Tarjeta2" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta2"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta2/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("2_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta2/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta2/Fila/Textos"]
+layout_mode = 2
+text = "Celdas de energía"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta2/Fila/Textos"]
+layout_mode = 2
+text = "Las esferas doradas dan 10 puntos × combo y +15 de energía. Si la recoges lejos de la luz ganas +5 de bono de riesgo. En las rondas avanzadas aparecen menos celdas y más despacio."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Tarjeta3" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta3"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta3/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("2_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta3/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta3/Fila/Textos"]
+layout_mode = 2
+text = "Combo"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta3/Fila/Textos"]
+layout_mode = 2
+text = "Si recoges otra celda a tiempo, el combo sube un nivel (máximo x5). Tienes 4 s en la Ronda 1, 3.5 s en la 2 y 3 s en la 3. Se reinicia si se acaba el tiempo o si pierdes una vida."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Tarjeta4" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta4"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta4/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("1_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta4/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta4/Fila/Textos"]
+layout_mode = 2
+text = "Faroles"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta4/Fila/Textos"]
+layout_mode = 2
+text = "Acércate a un farol apagado y pulsa E o Espacio. Cuesta 10 de energía, da +50 puntos y crea una zona segura de luz. Al encender los 5 completas la ronda (+100 × número de ronda). En cada ronda los faroles cambian de lugar."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Tarjeta5" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta5"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta5/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("2_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta5/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta5/Fila/Textos"]
+layout_mode = 2
+text = "Energía"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta5/Fila/Textos"]
+layout_mode = 2
+text = "Va de 0 a 100. Fuera de la luz gastas al moverte y, un poco menos, quieta; el gasto sube en cada ronda. Mantén Shift para correr más rápido a cambio de energía extra. Con 0 te mueves a la mitad de velocidad; si pasan 5 segundos así pierdes una vida."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Tarjeta6" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta6"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta6/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("3_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta6/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta6/Fila/Textos"]
+layout_mode = 2
+text = "Sombras"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta6/Fila/Textos"]
+layout_mode = 2
+text = "Te persiguen si te ven fuera de la luz y avisan a las Sombras cercanas. Cuanto más dura una ronda, más rápidas se vuelven, y en la Ronda 3 anticipan tus movimientos. La luz las frena y las disipa. Cuando una Sombra te ve aparece un \"!\" rojo sobre ella."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Tarjeta7" type="PanelContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas"]
+layout_mode = 2
+theme_type_variation = &"TarjetaLuminar"
+
+[node name="Fila" type="HBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta7"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Icono" type="TextureRect" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta7/Fila"]
+layout_mode = 2
+custom_minimum_size = Vector2(34.0, 40.0)
+texture = ExtResource("4_r")
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 0
+
+[node name="Textos" type="VBoxContainer" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta7/Fila"]
+layout_mode = 2
+theme_override_constants/separation = 2
+size_flags_horizontal = 3
+
+[node name="Titulo" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta7/Fila/Textos"]
+layout_mode = 2
+text = "Rondas y tiempo"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 19
+
+[node name="Texto" type="Label" parent="Margen/Col/Scroll/Cuerpo/Reglas/Tarjeta7/Fila/Textos"]
+layout_mode = 2
+text = "Cada ronda trae más Sombras, más rápidas, que ven más lejos, y más oscuridad. Ganas +1 punto por segundo. Si te falta una vida, a veces aparece un corazón en el mapa: recógelo antes de que se apague para recuperarla. La partida termina al perder las 3 vidas, al pasar 6:00 o al completar la Ronda 3 (+500). Para el ranking en la nube entra con tu alias y un PIN de 4 números: así nadie más puede usar tu nombre, ni desde otra computadora."
+theme_override_font_sizes/font_size = 15
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Botones" type="HBoxContainer" parent="Margen/Col"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="BtnVolver" type="Button" parent="Margen/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200.0, 50.0)
+text = "Volver"
+
+[node name="BtnHistoria" type="Button" parent="Margen/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200.0, 50.0)
+text = "Ver historia"
+
+[node name="BtnJugar" type="Button" parent="Margen/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200.0, 50.0)
+text = "Jugar"
+theme_type_variation = &"BotonPrincipal"

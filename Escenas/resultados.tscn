@@ -1,0 +1,266 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://Recursos/UI/tema_luminar.tres" id="1_r"]
+[ext_resource type="Script" path="res://scripts/resultados.gd" id="2_r"]
+
+[node name="Resultados" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r")
+script = ExtResource("2_r")
+
+[node name="Velo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0, 0.0, 0.03, 0.78)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_type_variation = &"PanelLuminar"
+custom_minimum_size = Vector2(540.0, 0.0)
+
+[node name="Col" type="VBoxContainer" parent="Centro/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Titulo" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "¡Ciudad Faro vuelve a brillar!"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Gracias a Chispa, la luz regresó a cada calle."
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.8)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+
+[node name="EtiquetaTotal" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+text = "PUNTUACIÓN FINAL"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+
+[node name="Total" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "0"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 46
+horizontal_alignment = 1
+
+[node name="Tabla" type="GridContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+columns = 3
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 3
+
+[node name="CeldasN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Celdas recogidas"
+theme_override_font_sizes/font_size = 17
+
+[node name="CeldasD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "0"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="CeldasP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "+0"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="RiesgoN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Bono de riesgo"
+theme_override_font_sizes/font_size = 17
+
+[node name="RiesgoD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "0 fuera de la luz"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="RiesgoP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "+0"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="FarolesN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Faroles encendidos"
+theme_override_font_sizes/font_size = 17
+
+[node name="FarolesD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "0"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="FarolesP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "+0"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="RondasN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Rondas completadas"
+theme_override_font_sizes/font_size = 17
+
+[node name="RondasD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "0 / 3"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="RondasP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "+0"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="TiempoN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Tiempo sobrevivido"
+theme_override_font_sizes/font_size = 17
+
+[node name="TiempoD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "00:00"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="TiempoP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "+0"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="VictoriaN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Bono de victoria"
+theme_override_font_sizes/font_size = 17
+
+[node name="VictoriaD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "No"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="VictoriaP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "+0"
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="ComboN" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "Combo máximo"
+theme_override_font_sizes/font_size = 17
+
+[node name="ComboD" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = "x1"
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.65)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+size_flags_horizontal = 3
+
+[node name="ComboP" type="Label" parent="Centro/Panel/Col/Tabla"]
+layout_mode = 2
+text = ""
+theme_type_variation = &"Subtitulo"
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="EstadoNube" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Guardando puntuación en la nube..."
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.7)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="Botones" type="HBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BtnJugar" type="Button" parent="Centro/Panel/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Jugar de nuevo"
+theme_type_variation = &"BotonPrincipal"
+size_flags_horizontal = 3
+
+[node name="BtnRanking" type="Button" parent="Centro/Panel/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Ver ranking"
+size_flags_horizontal = 3
+
+[node name="BtnMenu" type="Button" parent="Centro/Panel/Col/Botones"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Menú"
+size_flags_horizontal = 3

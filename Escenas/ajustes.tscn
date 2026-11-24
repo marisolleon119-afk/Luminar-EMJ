@@ -1,0 +1,474 @@
+[gd_scene format=3 uid="uid://e3hxffkth5f2"]
+
+[ext_resource type="Texture2D" uid="uid://i8kwnpdg556m" path="res://Recursos/Portada/LUMINAR_ La luz del pueblo nocturno.png" id="1_r"]
+[ext_resource type="Theme" path="res://Recursos/UI/tema_luminar.tres" id="2_r"]
+[ext_resource type="Script" path="res://scripts/ajustes.gd" id="3_r"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1"]
+
+[node name="Ajustes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_r")
+script = ExtResource("3_r")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Velo" type="ColorRect" parent="."]
+layout_mode = 1
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392, 0.0667, 0.1569, 0.6)
+mouse_filter = 2
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+theme_type_variation = &"PanelLuminar"
+custom_minimum_size = Vector2(720.0, 560.0)
+
+[node name="Col" type="VBoxContainer" parent="Centro/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+text = "Ajustes"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Pestanas" type="HBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TabSonido" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130.0, 42.0)
+text = "Sonido"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+button_pressed = true
+
+[node name="TabPantalla" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130.0, 42.0)
+text = "Pantalla"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+
+[node name="TabControles" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130.0, 42.0)
+text = "Controles"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+
+[node name="TabPerfil" type="Button" parent="Centro/Panel/Col/Pestanas"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130.0, 42.0)
+text = "Perfil"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1")
+theme_type_variation = &"BotonPestana"
+
+[node name="Contenido" type="MarginContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 12
+
+[node name="PaginaSonido" type="VBoxContainer" parent="Centro/Panel/Col/Contenido"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 18
+
+[node name="FilaMaster" type="HBoxContainer" parent="Centro/Panel/Col/Contenido/PaginaSonido"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Etiqueta" type="Label" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaMaster"]
+layout_mode = 2
+text = "Volumen general"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(200.0, 0.0)
+
+[node name="SliderMaster" type="HSlider" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaMaster"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 28.0)
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ValorMaster" type="Label" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaMaster"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "100%"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="FilaMusica" type="HBoxContainer" parent="Centro/Panel/Col/Contenido/PaginaSonido"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Etiqueta" type="Label" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaMusica"]
+layout_mode = 2
+text = "Música"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(200.0, 0.0)
+
+[node name="SliderMusica" type="HSlider" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaMusica"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 28.0)
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="ValorMusica" type="Label" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaMusica"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "70%"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="FilaEfectos" type="HBoxContainer" parent="Centro/Panel/Col/Contenido/PaginaSonido"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Etiqueta" type="Label" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaEfectos"]
+layout_mode = 2
+text = "Efectos"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(200.0, 0.0)
+
+[node name="SliderEfectos" type="HSlider" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaEfectos"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 28.0)
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.85
+
+[node name="ValorEfectos" type="Label" parent="Centro/Panel/Col/Contenido/PaginaSonido/FilaEfectos"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "85%"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="CheckSilencio" type="CheckButton" parent="Centro/Panel/Col/Contenido/PaginaSonido"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Silenciar todo"
+button_pressed = false
+
+[node name="PaginaPantalla" type="VBoxContainer" parent="Centro/Panel/Col/Contenido"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 18
+visible = false
+
+[node name="CheckPantallaCompleta" type="CheckButton" parent="Centro/Panel/Col/Contenido/PaginaPantalla"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Pantalla completa"
+button_pressed = false
+
+[node name="CheckVsync" type="CheckButton" parent="Centro/Panel/Col/Contenido/PaginaPantalla"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Sincronización vertical (V-Sync)"
+button_pressed = true
+
+[node name="FilaBrillo" type="HBoxContainer" parent="Centro/Panel/Col/Contenido/PaginaPantalla"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Etiqueta" type="Label" parent="Centro/Panel/Col/Contenido/PaginaPantalla/FilaBrillo"]
+layout_mode = 2
+text = "Brillo"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(200.0, 0.0)
+
+[node name="SliderBrillo" type="HSlider" parent="Centro/Panel/Col/Contenido/PaginaPantalla/FilaBrillo"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 28.0)
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 1.5
+step = 0.05
+value = 1.0
+
+[node name="ValorBrillo" type="Label" parent="Centro/Panel/Col/Contenido/PaginaPantalla/FilaBrillo"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "100%"
+theme_type_variation = &"Titulo"
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+custom_minimum_size = Vector2(70.0, 0.0)
+
+[node name="Nota" type="Label" parent="Centro/Panel/Col/Contenido/PaginaPantalla"]
+layout_mode = 2
+text = "El brillo ajusta toda la pantalla del juego. Sube el valor si se ve muy oscuro."
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.6)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="PaginaControles" type="VBoxContainer" parent="Centro/Panel/Col/Contenido"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 12
+visible = false
+
+[node name="GridTeclas" type="GridContainer" parent="Centro/Panel/Col/Contenido/PaginaControles"]
+layout_mode = 2
+unique_name_in_owner = true
+columns = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 10
+
+[node name="EncAccion" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Acción"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 18
+
+[node name="EncPrincipal" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Principal"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="EncAlterna" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Alterna"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="Nombre_mover_izq" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Mover a la izquierda"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(240.0, 0.0)
+
+[node name="mover_izq_0" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "A"
+
+[node name="mover_izq_1" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Flecha izq."
+
+[node name="Nombre_mover_der" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Mover a la derecha"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(240.0, 0.0)
+
+[node name="mover_der_0" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "D"
+
+[node name="mover_der_1" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Flecha der."
+
+[node name="Nombre_mover_arr" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Mover arriba"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(240.0, 0.0)
+
+[node name="mover_arr_0" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "W"
+
+[node name="mover_arr_1" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Flecha arr."
+
+[node name="Nombre_mover_abj" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Mover abajo"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(240.0, 0.0)
+
+[node name="mover_abj_0" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "S"
+
+[node name="mover_abj_1" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Flecha abj."
+
+[node name="Nombre_encender_farol" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Encender farol"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(240.0, 0.0)
+
+[node name="encender_farol_0" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "E"
+
+[node name="encender_farol_1" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Espacio"
+
+[node name="Nombre_correr" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+text = "Correr (gasta energía)"
+theme_override_font_sizes/font_size = 20
+custom_minimum_size = Vector2(240.0, 0.0)
+
+[node name="correr_0" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "Shift"
+
+[node name="correr_1" type="Button" parent="Centro/Panel/Col/Contenido/PaginaControles/GridTeclas"]
+layout_mode = 2
+custom_minimum_size = Vector2(150.0, 40.0)
+text = "K"
+
+[node name="Nota" type="Label" parent="Centro/Panel/Col/Contenido/PaginaControles"]
+layout_mode = 2
+text = "Haz clic en una tecla para cambiarla. Esc cancela y Supr quita la alterna."
+theme_override_colors/font_color = Color(0.9529, 0.9137, 0.8235, 0.6)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="PaginaPerfil" type="VBoxContainer" parent="Centro/Panel/Col/Contenido"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 18
+visible = false
+
+[node name="EtiquetaAlias" type="Label" parent="Centro/Panel/Col/Contenido/PaginaPerfil"]
+layout_mode = 2
+text = "Alias"
+theme_override_font_sizes/font_size = 20
+
+[node name="FilaAlias" type="HBoxContainer" parent="Centro/Panel/Col/Contenido/PaginaPerfil"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CampoAlias" type="LineEdit" parent="Centro/Panel/Col/Contenido/PaginaPerfil/FilaAlias"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260.0, 44.0)
+placeholder_text = "Tu alias..."
+max_length = 12
+
+[node name="BtnGuardarAlias" type="Button" parent="Centro/Panel/Col/Contenido/PaginaPerfil/FilaAlias"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Guardar alias"
+theme_type_variation = &"BotonPrincipal"
+
+[node name="CheckEnviarOnline" type="CheckButton" parent="Centro/Panel/Col/Contenido/PaginaPerfil"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Enviar mis puntajes al ranking online"
+button_pressed = true
+
+[node name="BtnBorrar" type="Button" parent="Centro/Panel/Col/Contenido/PaginaPerfil"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Borrar progreso local"
+size_flags_horizontal = 0
+
+[node name="Aviso" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+text = ""
+theme_override_colors/font_color = Color(1.0, 0.8275, 0.3529, 1.0)
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="Pie" type="HBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="BtnRestablecer" type="Button" parent="Centro/Panel/Col/Pie"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 46.0)
+text = "Restablecer pestaña"
+
+[node name="BtnVolver" type="Button" parent="Centro/Panel/Col/Pie"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140.0, 46.0)
+text = "Volver"
+theme_type_variation = &"BotonPrincipal"

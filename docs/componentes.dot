@@ -1,0 +1,36 @@
+digraph G {
+  rankdir=TB; newrank=true; compound=true;
+  graph [fontname="DejaVu Sans", bgcolor="white", pad=0.4, nodesep=0.3, ranksep=0.7];
+  node [fontname="DejaVu Sans", fontsize=11, shape=component, style=filled, fillcolor="#ffffff", color="#444444"];
+  edge [fontname="DejaVu Sans", fontsize=11, color="#555555"];
+  subgraph cluster_ui { label=<<b>1. Presentación (escenas y UI)</b>>; style="rounded,filled"; fillcolor="#fff7e6"; color="#e8a33d";
+    acceso [label="acceso.gd\n¿Quién juega? (alias + PIN)"]; portada [label="portada.gd\nmenú · Cambiar jugador"];
+    comic [label="comic.gd\nhistoria inicio / final"]; hud [label="hud.gd\nvidas · energía · avisos"];
+    resultados [label="resultados.gd\npuntuación · récord"]; ranking [label="ranking.gd\nTop 10"]; otros [label="ajustes.gd · instrucciones.gd\npausa.gd"];
+    {rank=same; acceso; portada; comic; hud; resultados; ranking; otros}
+  }
+  subgraph cluster_logica { label=<<b>2. Lógica del juego</b>>; style="rounded,filled"; fillcolor="#eef2ff"; color="#3b5bdb";
+    mundo [label="mundo.gd\nrondas · puntuación · faroles · corazones"];
+    chispa [label="chispa.gd\njugador · energía · correr"]; sombra [label="sombra.gd\nenemigos"]; objetos [label="farol.gd · celda_de_energia.gd\nvida_extra.gd"];
+    mundo -> {chispa sombra objetos};
+  }
+  subgraph cluster_datos { label=<<b>3. Estado y acceso a datos</b>>; style="rounded,filled"; fillcolor="#ebfbee"; color="#2f9e44";
+    global [label="global.gd (autoload)\nsesión · validación · récords · pendientes"];
+    supabase [label="supabase.gd (autoload)\núnico que usa la red (HTTPS)"];
+    local [shape=cylinder, label="user://luminar.json\nrespaldo local"];
+    config [shape=note, label="config.cfg\nURL + clave publicable\n(fuera de GitHub)"];
+    global -> supabase; global -> local [label=" guardar / cargar"]; supabase -> config [style=dashed, label=" lee"];
+    {rank=same; supabase; local; config}
+  }
+  subgraph cluster_nube { label=<<b>4. Nube: Supabase</b>>; style="rounded,filled"; fillcolor="#f3f0ff"; color="#7048e8";
+    rest [label="API REST (PostgREST)\nRLS: solo lectura + funciones\nacceder_jugador · guardar_partida"];
+    db [shape=cylinder, label="PostgreSQL\njugadores · partidas · sesiones\nCHECK · triggers · PIN con bcrypt"];
+    rest -> db [minlen=1];
+    {rank=same; rest; db}
+  }
+  portada -> mundo [label=" Jugar", lhead=cluster_logica, penwidth=1.8];
+  mundo -> hud [style=dashed, constraint=false, label="actualiza"];
+  mundo -> global [label=" registrar_puntaje()", penwidth=1.8];
+  ranking -> global [ltail=cluster_ui, lhead=cluster_datos, label=" las pantallas leen y guardan\n en el estado (alias, ajustes, ranking)", style=dashed, constraint=false];
+  supabase -> rest [label=" HTTPS: GET / POST rpc", penwidth=2.2, color="#7048e8", fontcolor="#7048e8"];
+}

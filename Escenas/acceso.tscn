@@ -1,0 +1,167 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://i8kwnpdg556m" path="res://Recursos/Portada/LUMINAR_ La luz del pueblo nocturno.png" id="1_a"]
+[ext_resource type="Theme" path="res://Recursos/UI/tema_luminar.tres" id="2_a"]
+[ext_resource type="Script" path="res://scripts/acceso.gd" id="3_a"]
+
+[node name="Acceso" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_a")
+script = ExtResource("3_a")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Velo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392, 0.0667, 0.1569, 0.62)
+mouse_filter = 2
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+custom_minimum_size = Vector2(460.0, 0.0)
+theme_type_variation = &"PanelLuminar"
+
+[node name="Col" type="VBoxContainer" parent="Centro/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titulo" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+text = "¿Quién juega?"
+theme_type_variation = &"TituloGrande"
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="Explicacion" type="Label" parent="Centro/Panel/Col"]
+layout_mode = 2
+text = "Escribe tu alias y un PIN de 4 números.
+Si el alias es nuevo, quedará protegido con ese PIN.
+Si ya es tuyo, usa tu mismo PIN (en cualquier computadora)."
+theme_type_variation = &"TextoSuave"
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+autowrap_mode = 3
+custom_minimum_size = Vector2(420.0, 0.0)
+
+[node name="Recordado" type="VBoxContainer" parent="Centro/Panel/Col"]
+visible = false
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 10
+
+[node name="LblRecordado" type="Label" parent="Centro/Panel/Col/Recordado"]
+layout_mode = 2
+unique_name_in_owner = true
+text = "Último jugador en este equipo:"
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+autowrap_mode = 3
+custom_minimum_size = Vector2(420.0, 0.0)
+
+[node name="BtnContinuar" type="Button" parent="Centro/Panel/Col/Recordado"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 56.0)
+text = "▶  Continuar como ..."
+theme_type_variation = &"BotonPrincipal"
+theme_override_font_sizes/font_size = 22
+
+[node name="BtnOtro" type="Button" parent="Centro/Panel/Col/Recordado"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 44.0)
+text = "Entrar con otro jugador"
+theme_override_font_sizes/font_size = 18
+
+[node name="Formulario" type="VBoxContainer" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+theme_override_constants/separation = 10
+
+[node name="LblAlias" type="Label" parent="Centro/Panel/Col/Formulario"]
+layout_mode = 2
+text = "Alias"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 18
+
+[node name="CampoAlias" type="LineEdit" parent="Centro/Panel/Col/Formulario"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 48.0)
+placeholder_text = "De 3 a 12 letras o números"
+max_length = 12
+
+[node name="LblPin" type="Label" parent="Centro/Panel/Col/Formulario"]
+layout_mode = 2
+text = "PIN (4 números)"
+theme_type_variation = &"Subtitulo"
+theme_override_font_sizes/font_size = 18
+
+[node name="CampoPin" type="LineEdit" parent="Centro/Panel/Col/Formulario"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 48.0)
+placeholder_text = "••••"
+max_length = 4
+secret = true
+virtual_keyboard_type = 2
+
+[node name="Aviso" type="Label" parent="Centro/Panel/Col/Formulario"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420.0, 44.0)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BtnEntrar" type="Button" parent="Centro/Panel/Col/Formulario"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 56.0)
+text = "Entrar"
+theme_type_variation = &"BotonPrincipal"
+theme_override_font_sizes/font_size = 24
+
+[node name="BtnLocal" type="Button" parent="Centro/Panel/Col/Formulario"]
+visible = false
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 44.0)
+text = "Jugar sin conexión (modo local)"
+theme_override_font_sizes/font_size = 18
+
+[node name="BtnSalir" type="Button" parent="Centro/Panel/Col"]
+layout_mode = 2
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0.0, 40.0)
+text = "Salir"
+theme_override_font_sizes/font_size = 18
